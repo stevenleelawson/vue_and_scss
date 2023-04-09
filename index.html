@@ -5,10 +5,41 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="css/style.css" rel="stylesheet">
-
+		<!-- vue 3 cdn -->
 		<script src="https://unpkg.com/vue@next"></script>
+
 	</head>
 	<body>
 	<h1>Arya is the best</h1>
+	<div id="app">
+		<div class="main__greeting">
+			<p>{{ greeting }}</p>
+
+		</div>
+		<p>{{ isItTrue ? 'Yes' : 'No' }}</p>
+		<p>{{ array[0] }}</p>
+		<h1>this is a car that exists</h1>
+		<p>{{ obj.car }}</p>
+	</div>
 	</body>
+	<script>
+
+		const date = new Date().toLocaleString()
+		const App = {
+			// data is like the store
+			data() {
+				return {
+					greeting: 'Hello Walls, it is ' + date,
+					isItTrue: false,
+					array: ['chipchip', 'taco'],
+					obj: {
+						car: 'Ferrari'
+					},
+				}
+			}
+		}
+		
+		Vue.createApp(App).mount('#app')
+
+	</script>
 </html>

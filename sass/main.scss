@@ -1,0 +1,7 @@
+$color-primary: #55c57a;
+
+.main {
+	&__greeting {
+		background-color: $color-primary;
+	}
+}
