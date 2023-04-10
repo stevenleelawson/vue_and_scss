@@ -10,24 +10,16 @@
 
 	</head>
 	<body>
-	<h1>Arya is the best</h1>
-	<div id="app">
-		<!-- <div class="main__greeting">
-			<p>{{ greeting }}</p>
+			<div id="app">
+			<h1 class="main__greeting">Arya is the best</h1>
 
-		</div>
-		<p>{{ isItTrue ? 'Yes' : 'No' }}</p>
-		<p>{{ array[0] }}</p>
-		<h1>this is a car that exists</h1>
-		<p class="main__function-greeting">{{ obj.car }}</p>
-		<h2>{{ welcome() }}</h2> -->
-		<img v-bind:src="src" v-bind:alt="alt">
-		<hr>
-		<a v-bind:href="link">Go to google</a>
-		<hr>
-		<p v-text="myText"></p>
-		<hr>
-		<div class="main__v-html" v-html="myHtml"></div>
+			<p v-show="true">Show it</p>
+			<p v-show="false">DO NOT Show it</p>
+			<!-- <p v-if="userAge > allowedAge">
+				You are old enough access granted
+			</p>
+			<p v-else-if="user === 'Francis'">You Are allowed to enter</p>
+			<p v-else>You ain't old enough man an you name ain't FRANCIS</p> -->
 	</div>
 	</body>
 	<script>
@@ -37,31 +29,12 @@
 			// data is like the store
 			data() {
 				return {
-					src: 'https://picsum.photos/200/300',
-					alt: 'another image',
-					link: 'http://google.com',
-					myText: 'Hello walls!',
-					myHtml: '<strong>My html</strong>'
-					// greeting: 'Hello Walls, it is ' + date,
-					// isItTrue: true,
-					// array: ['chipchip', 'taco', 'Steve'],
-					// obj: {
-					// 	car: 'Ferrari'
-					// },
+					user: 'Francis',
+					userAge: 15,
+					allowedAge: 18,
 				}
 			},
-			methods: {
-				welcome() {
-					// Math.floor() static method always rounds down and returns the largest integer less than or equal to a given number
-					const randomName = this.array[Math.floor(Math.random() * this.array.length)];
-
-					if (this.isItTrue) {
-						return `${this.greeting}, my name is ${randomName}`
-					}
-
-					return this.greeting;
-				}
-			},
+			
 		}
 		
 		Vue.createApp(App).mount('#app')
