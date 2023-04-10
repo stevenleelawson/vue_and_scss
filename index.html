@@ -12,14 +12,22 @@
 	<body>
 	<h1>Arya is the best</h1>
 	<div id="app">
-		<div class="main__greeting">
+		<!-- <div class="main__greeting">
 			<p>{{ greeting }}</p>
 
 		</div>
 		<p>{{ isItTrue ? 'Yes' : 'No' }}</p>
 		<p>{{ array[0] }}</p>
 		<h1>this is a car that exists</h1>
-		<p>{{ obj.car }}</p>
+		<p class="main__function-greeting">{{ obj.car }}</p>
+		<h2>{{ welcome() }}</h2> -->
+		<img v-bind:src="src" v-bind:alt="alt">
+		<hr>
+		<a v-bind:href="link">Go to google</a>
+		<hr>
+		<p v-text="myText"></p>
+		<hr>
+		<div class="main__v-html" v-html="myHtml"></div>
 	</div>
 	</body>
 	<script>
@@ -29,14 +37,31 @@
 			// data is like the store
 			data() {
 				return {
-					greeting: 'Hello Walls, it is ' + date,
-					isItTrue: false,
-					array: ['chipchip', 'taco'],
-					obj: {
-						car: 'Ferrari'
-					},
+					src: 'https://picsum.photos/200/300',
+					alt: 'another image',
+					link: 'http://google.com',
+					myText: 'Hello walls!',
+					myHtml: '<strong>My html</strong>'
+					// greeting: 'Hello Walls, it is ' + date,
+					// isItTrue: true,
+					// array: ['chipchip', 'taco', 'Steve'],
+					// obj: {
+					// 	car: 'Ferrari'
+					// },
 				}
-			}
+			},
+			methods: {
+				welcome() {
+					// Math.floor() static method always rounds down and returns the largest integer less than or equal to a given number
+					const randomName = this.array[Math.floor(Math.random() * this.array.length)];
+
+					if (this.isItTrue) {
+						return `${this.greeting}, my name is ${randomName}`
+					}
+
+					return this.greeting;
+				}
+			},
 		}
 		
 		Vue.createApp(App).mount('#app')

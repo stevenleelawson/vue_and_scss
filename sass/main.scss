@@ -1,7 +1,14 @@
 $color-primary: #55c57a;
+$color-secondary: #3bbadd;
 
 .main {
 	&__greeting {
-		background-color: $color-primary;
+		color: $color-primary;
+	}
+	&__function-greeting {
+		color: $color-secondary;
+	}
+	&__v-html {
+		color: $color-secondary;
 	}
 }
