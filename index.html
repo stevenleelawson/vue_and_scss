@@ -10,28 +10,52 @@
 
 	</head>
 	<body>
-			<div id="app">
-			<h1 class="main__greeting">Arya is the best</h1>
-
-			<p v-show="true">Show it</p>
-			<p v-show="false">DO NOT Show it</p>
-			<!-- <p v-if="userAge > allowedAge">
-				You are old enough access granted
+		<div id="app">
+			<!-- if you want the index put first param in parens, then the index!!! neat  -->
+			<p
+				class="main__greeting"
+				v-for="(name, idx) in names"
+				:key="name + idx"
+			>
+			<!-- note: do not put other elems INSIDE  a v-for as it will get confused -->
+				{{ name + idx }}
 			</p>
-			<p v-else-if="user === 'Francis'">You Are allowed to enter</p>
-			<p v-else>You ain't old enough man an you name ain't FRANCIS</p> -->
-	</div>
+
+			<ul>
+				<li v-for="(car, idx) in cars"> {{ car.brand }} : {{ car.color }}</li>
+			</ul>
+
+			<ul>
+				<!-- note: v-for can also iterate over an OBJECT, neat!! -->
+				<li v-for="(key, value, index) in user"> {{ key }} : {{ value }} : {{index}}</li>
+			</ul>
+		</div>
 	</body>
 	<script>
 
 		const date = new Date().toLocaleString()
 		const App = {
-			// data is like the store
 			data() {
 				return {
-					user: 'Francis',
-					userAge: 15,
-					allowedAge: 18,
+					user: {
+						name: 'Arya',
+						lastname: 'Lawson',
+						age: 2.9
+					},
+					cars: [
+						{
+							brand: 'Tesla',
+							color: 'blue'
+						},
+						{
+							brand: 'Ford',
+							color: 'green'
+						},
+						{
+							brand: 'Toyota',
+							color: 'white'
+						},
+					]
 				}
 			},
 			
