@@ -11,24 +11,10 @@
 	</head>
 	<body>
 		<div id="app">
-			<!-- if you want the index put first param in parens, then the index!!! neat  -->
-			<p
-				class="main__greeting"
-				v-for="(name, idx) in names"
-				:key="name + idx"
-			>
-			<!-- note: do not put other elems INSIDE  a v-for as it will get confused -->
-				{{ name + idx }}
-			</p>
+			<p v-once>{{name}}</p>
+			<p>{{name}}</p>
 
-			<ul>
-				<li v-for="(car, idx) in cars"> {{ car.brand }} : {{ car.color }}</li>
-			</ul>
-
-			<ul>
-				<!-- note: v-for can also iterate over an OBJECT, neat!! -->
-				<li v-for="(key, value, index) in user"> {{ key }} : {{ value }} : {{index}}</li>
-			</ul>
+			{{ update() }}
 		</div>
 	</body>
 	<script>
@@ -37,28 +23,16 @@
 		const App = {
 			data() {
 				return {
-					user: {
-						name: 'Arya',
-						lastname: 'Lawson',
-						age: 2.9
-					},
-					cars: [
-						{
-							brand: 'Tesla',
-							color: 'blue'
-						},
-						{
-							brand: 'Ford',
-							color: 'green'
-						},
-						{
-							brand: 'Toyota',
-							color: 'white'
-						},
-					]
+					name: 'Arya'
 				}
 			},
-			
+			methods: {
+				update() {
+					setTimeout(() => {
+						this.name = 'Chipchip'
+					}, 200)
+				}
+			}
 		}
 		
 		Vue.createApp(App).mount('#app')
