@@ -11,10 +11,17 @@
 	</head>
 	<body>
 		<div id="app">
-			<p v-once>{{name}}</p>
-			<p>{{name}}</p>
+			<div class="main__bok" v-on:mousemove="getCoord">
+				Hover Me
+			</div>
+			<p>X: {{x}}</p>
+			<p>Y: {{y}}</p>
+			
+			<h1 class="main__greeting">{{ name }}</h1>
+			<a class="main__btn" v-on:click="updateName">
+				It's a me, Mario!
+			</a>
 
-			{{ update() }}
 		</div>
 	</body>
 	<script>
@@ -23,14 +30,18 @@
 		const App = {
 			data() {
 				return {
-					name: 'Arya'
+					name: 'Arya',
+					x: 0,
+					y: 0,
 				}
 			},
 			methods: {
-				update() {
-					setTimeout(() => {
-						this.name = 'Chipchip'
-					}, 200)
+				updateName() {
+					this.name = 'Mario'
+				},
+				getCoord(event) {
+					this.x = event.clientX;
+					this.y = event.clientY;
 				}
 			}
 		}

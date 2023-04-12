@@ -1,9 +1,38 @@
+// basic reset
+
+*,
+::after,
+::before {
+	// pseudo elems help protect against any unexpected behavior
+	margin: 0;
+	padding: 0;
+
+	box-sizing: inherit;
+}
+
+html {
+	/* 1 rem === 10px */
+	/* font-size: 10px; */
+
+	/* changed from above to %%%% a percent %%%% 10/16px === 62.5 percent */
+	/* do this so it is based on whatever user has selected in browser */
+	// font-size: 62.5%;
+	font-size: 80%;
+}
+
+body {
+	box-sizing: border-box;
+}
+
 $color-primary: #55c57a;
 $color-secondary: #3bbadd;
+
+$color-black: #565454;
 
 .main {
 	&__greeting {
 		color: $color-primary;
+		padding: 4rem 0;
 	}
 	&__function-greeting {
 		color: $color-secondary;
@@ -11,4 +40,19 @@ $color-secondary: #3bbadd;
 	&__v-html {
 		color: $color-secondary;
 	}
+}
+
+.main__btn {
+	background-color: $color-secondary;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 1rem 2rem rgba($color-black, .2);
+	margin: 0 1rem;
+	padding: 1rem;
+	cursor: wait;
+}
+.main__bok {
+	background: orangered;
+	width: 20rem;
+	height: 20rem;
 }

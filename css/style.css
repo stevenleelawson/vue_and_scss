@@ -1,8 +1,40 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  /* 1 rem === 10px */
+  /* font-size: 10px; */
+  /* changed from above to %%%% a percent %%%% 10/16px === 62.5 percent */
+  /* do this so it is based on whatever user has selected in browser */
+  font-size: 80%; }
+
+body {
+  box-sizing: border-box; }
+
 .main__greeting {
-  color: #55c57a; }
+  color: #55c57a;
+  padding: 4rem 0; }
 
 .main__function-greeting {
   color: #3bbadd; }
 
 .main__v-html {
   color: #3bbadd; }
+
+.main__btn {
+  background-color: #3bbadd;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1rem 2rem rgba(86, 84, 84, 0.2);
+  margin: 0 1rem;
+  padding: 1rem;
+  cursor: wait; }
+
+.main__bok {
+  background: orangered;
+  width: 20rem;
+  height: 20rem; }
