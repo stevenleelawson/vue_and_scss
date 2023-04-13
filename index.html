@@ -11,17 +11,14 @@
 	</head>
 	<body>
 		<div id="app">
-			<div class="main__bok" v-on:mousemove="getCoord">
-				Hover Me
-			</div>
-			<p>X: {{x}}</p>
-			<p>Y: {{y}}</p>
+			
 			
 			<h1 class="main__greeting">{{ name }}</h1>
-			<a class="main__btn" v-on:click="updateName">
+			<a class="main__btn" v-on:click.right="changeName('uncle ronnie', $event)">
 				It's a me, Mario!
 			</a>
 
+			
 		</div>
 	</body>
 	<script>
@@ -31,18 +28,14 @@
 			data() {
 				return {
 					name: 'Arya',
-					x: 0,
-					y: 0,
 				}
 			},
 			methods: {
-				updateName() {
-					this.name = 'Mario'
+				changeName(newName, event) {
+					this.name = newName;
+					console.log('eeeveee', event)
 				},
-				getCoord(event) {
-					this.x = event.clientX;
-					this.y = event.clientY;
-				}
+				
 			}
 		}
 		

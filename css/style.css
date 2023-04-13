@@ -17,7 +17,8 @@ body {
 
 .main__greeting {
   color: #55c57a;
-  padding: 4rem 0; }
+  padding: 4rem 0;
+  margin: 1rem 1rem 2rem 3rem; }
 
 .main__function-greeting {
   color: #3bbadd; }
