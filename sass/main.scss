@@ -1,4 +1,5 @@
 // basic reset
+// !!!!!!!!!!!!!!!! note: in addition to npm run compile:sass need to run 'live-server' command in another tab in order to compile
 
 *,
 ::after,
@@ -41,6 +42,11 @@ $color-black: #565454;
 	&__v-html {
 		color: $color-secondary;
 	}
+
+	&__input {
+		margin: 2rem;
+		height: 20px;
+	}
 }
 
 .main__btn {
@@ -52,8 +58,10 @@ $color-black: #565454;
 	padding: 1rem;
 	cursor: wait;
 }
+
 .main__bok {
 	background: orangered;
 	width: 20rem;
 	height: 20rem;
 }
+

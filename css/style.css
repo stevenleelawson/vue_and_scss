@@ -26,6 +26,10 @@ body {
 .main__v-html {
   color: #3bbadd; }
 
+.main__input {
+  margin: 2rem;
+  height: 20px; }
+
 .main__btn {
   background-color: #3bbadd;
   color: #fff;

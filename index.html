@@ -18,6 +18,8 @@
 				It's a me, Mario!
 			</a>
 
+			<input class="main__input" type="text" v-on:keyup.enter="showEvent" />
+
 			
 		</div>
 	</body>
@@ -31,11 +33,13 @@
 				}
 			},
 			methods: {
-				changeName(newName, event) {
-					this.name = newName;
-					console.log('eeeveee', event)
-				},
-				
+				// changeName(newName, event) {
+				// 	this.name = newName;
+				// 	console.log('eeeveee', event)
+				// },
+				showEvent(event) {
+					console.log('tying', event.target.value)
+				}
 			}
 		}
 		
