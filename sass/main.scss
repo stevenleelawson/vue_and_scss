@@ -1,3 +1,8 @@
+$color-primary: #55c57a;
+$color-secondary: #3bbadd;
+
+$color-black: #565454;
+
 // basic reset
 
 *,
@@ -22,12 +27,10 @@ html {
 
 body {
 	box-sizing: border-box;
+	background-color: $color-primary;
 }
 
-$color-primary: #55c57a;
-$color-secondary: #3bbadd;
 
-$color-black: #565454;
 
 .main {
 	&__greeting {
@@ -40,6 +43,10 @@ $color-black: #565454;
 	}
 	&__v-html {
 		color: $color-secondary;
+	}
+	&__divider {
+		width: 50%;
+		margin: 1rem 2rem;
 	}
 }
 
