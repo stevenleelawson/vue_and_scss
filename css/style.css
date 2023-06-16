@@ -13,7 +13,8 @@ html {
   font-size: 80%; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: #55c57a; }
 
 .main__greeting {
   color: #55c57a;
@@ -25,6 +26,10 @@ body {
 
 .main__v-html {
   color: #3bbadd; }
+
+.main__divider {
+  width: 50%;
+  margin: 1rem 2rem; }
 
 .main__btn {
   background-color: #3bbadd;

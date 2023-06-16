@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Complete vue first lesson</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/style.css" rel="stylesheet">
-		<!-- vue 3 cdn -->
-		<script src="https://unpkg.com/vue@next"></script>
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <script src="https://unpkg.com/vue@next"></script>
 
-	</head>
-	<body>
-		<div id="app">
-			
-			
-			<h1 class="main__greeting">{{ name }}</h1>
-			<a class="main__btn" v-on:click.right="changeName('uncle ronnie', $event)">
-				It's a me, Mario!
-			</a>
-
-			
+   <title>Document</title>
+</head>
+<body>
+    <div id="app">
+		<!-- the whole colors obj is being applied, ie both classes are bound to the div and when you click on it both become true but it is red coz that's the second class  -->
+        <div class="element"
+			v-bind:class="colors"
+		>
+			This is mein contents
 		</div>
-	</body>
-	<script>
+		<hr>
+		<div v-on:click="colors.red = !colors.red">activate red</div>
+    </div>
+</body>
+<script>
 
-		const date = new Date().toLocaleString()
-		const App = {
-			data() {
-				return {
-					name: 'Arya',
+    const App = {
+        data(){
+            return {
+                colors: {
+					blue: true,
+					red: false
 				}
-			},
-			methods: {
-				changeName(newName, event) {
-					this.name = newName;
-					console.log('eeeveee', event)
-				},
-				
-			}
-		}
-		
-		Vue.createApp(App).mount('#app')
+            }   
+        },
+        methods:{
+         
+        }
+    }
 
-	</script>
+    Vue.createApp(App).mount('#app')
+
+</script>
+<style>
+    .element {
+        color: white;
+        background: black;
+        padding:10px
+    }
+    .blue {
+        background: blue;
+    }
+    
+    .green {
+        background: green;
+    }
+    .red {
+        background: red ;
+    }
+    .large{
+        font-size: 40px;
+    }
+</style>
+
 </html>
