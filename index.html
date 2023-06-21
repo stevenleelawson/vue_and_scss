@@ -12,12 +12,15 @@
     <div id="app">
 		<!-- the whole colors obj is being applied, ie both classes are bound to the div and when you click on it both become true but it is red coz that's the second class  -->
         <div class="element"
-			v-bind:class="colors"
+			v-bind:class="[
+			colors.blueClass.active ? colors.blueClass.name: '', 
+			colors.redClass.active ? colors.redClass.name: '']"
+			v-bind:style="newStyle"
 		>
 			This is mein contents
 		</div>
 		<hr>
-		<div v-on:click="colors.red = !colors.red">activate red</div>
+		<div v-on:click="colors.redClass.active = !colors.redClass.active, newStyle.fontSize = '150px'">activate red</div>
     </div>
 </body>
 <script>
@@ -25,9 +28,20 @@
     const App = {
         data(){
             return {
+				newStyle: {
+					fontSize: '50px',
+					border: '5px solid green'
+				},
                 colors: {
-					blue: true,
-					red: false
+					blueClass: {
+						name: 'blue',
+						active: true,
+					},
+					redClass: {
+						name: 'red',
+						active: true,
+					},
+					// redClass: 'red',
 				}
             }   
         },
@@ -46,14 +60,14 @@
         padding:10px
     }
     .blue {
-        background: blue;
+        background: rgb(96, 96, 128);
     }
     
     .green {
         background: green;
     }
     .red {
-        background: red ;
+        background: orangered ;
     }
     .large{
         font-size: 40px;
