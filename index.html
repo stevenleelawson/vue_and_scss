@@ -10,56 +10,34 @@
 </head>
 <body>
     <div id="app">
-		<input type="text" v-model="user">
-		<button v-on:click="toggleActive">Other action</button>
-		<hr>
-		<div>
-			Message: {{ compMessage }}
-		</div>
-		<div>
-			Active: {{ isActive() }}
-		</div>
+		<app-header></app-header>
+		<user-name></user-name>
+		<user-name></user-name>
     </div>
 </body>
 <script>
 
-    const App = {
-        data(){
-            return {
-                user: '',
-				active: true,
-            }   
-        },
-		watch: {
-			active(value) {
-				console.log('watch the active bool', value)
-				setTimeout(() => {
-					console.log('in the timeout', value)
-					
-				}, 1000)
-				console.log('OUT THE  the timeout', value)
-			}
-		},
-		computed: {
-			compMessage() {
-				return this.user === 'Frank' ? 'Welcome' : 'nope';
-			}
-		},
-        methods:{
-			// message() {
-			// 	// when using this method instead of computed, this method would run whenever anything at all in the app changed (every keystroke, for ex)
-			// 	return this.user === 'Frank' ? 'Welcome' : 'nope';
-			// },
-			isActive() {
-				return this.active? 'Active' : 'nert actives' 
-			},
-			toggleActive() {
-				this.active = this.active ? false : true; 
-			},
-        }
-    }
+    const app = Vue.createApp({});
 
-    Vue.createApp(App).mount('#app')
+	app.component('user-name', {
+		data() {
+			return {
+				name: 'arya'
+			}
+		},
+		template: `<h1>{{ name }}</h1>`
+	})
+
+	app.component('app-header', {
+		data() {
+			return {
+				name: 'HEADER'
+			}
+		},
+		template: `<h1>{{ name }}</h1>`
+	})
+
+	app.mount('#app');
 
 </script>
 <style>
