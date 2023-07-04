@@ -10,6 +10,8 @@
 </head>
 <body>
     <div id="app">
+		<app-header></app-header>
+		<user-name></user-name>
 		<user-name></user-name>
     </div>
 </body>
@@ -23,11 +25,20 @@
 				name: 'arya'
 			}
 		},
-		template: `<div>{{ name }}</div>`
+		template: `<h1>{{ name }}</h1>`
+	})
+
+	app.component('app-header', {
+		data() {
+			return {
+				name: 'HEADER'
+			}
+		},
+		template: `<h1>{{ name }}</h1>`
 	})
 
 	app.mount('#app');
-	
+
 </script>
 <style>
     .element {
