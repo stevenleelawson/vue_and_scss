@@ -6,18 +6,19 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <script src="https://unpkg.com/vue@next"></script>
 
-   <title>Document</title>
+   <title>Document REM the band</title>
 </head>
 <body>
     <div id="app">
-		<!-- the whole colors obj is being applied, ie both classes are bound to the div and when you click on it both become true but it is red coz that's the second class  -->
-        <div class="element"
-			v-bind:class="colors"
-		>
-			This is mein contents
-		</div>
+		<input type="text" v-model="user">
+		<button v-on:click="toggleActive">Other action</button>
 		<hr>
-		<div v-on:click="colors.red = !colors.red">activate red</div>
+		<div>
+			Message: {{ compMessage }}
+		</div>
+		<div>
+			Active: {{ isActive() }}
+		</div>
     </div>
 </body>
 <script>
@@ -25,14 +26,36 @@
     const App = {
         data(){
             return {
-                colors: {
-					blue: true,
-					red: false
-				}
+                user: '',
+				active: true,
             }   
         },
+		watch: {
+			active(value) {
+				console.log('watch the active bool', value)
+				setTimeout(() => {
+					console.log('in the timeout', value)
+					
+				}, 1000)
+				console.log('OUT THE  the timeout', value)
+			}
+		},
+		computed: {
+			compMessage() {
+				return this.user === 'Frank' ? 'Welcome' : 'nope';
+			}
+		},
         methods:{
-         
+			// message() {
+			// 	// when using this method instead of computed, this method would run whenever anything at all in the app changed (every keystroke, for ex)
+			// 	return this.user === 'Frank' ? 'Welcome' : 'nope';
+			// },
+			isActive() {
+				return this.active? 'Active' : 'nert actives' 
+			},
+			toggleActive() {
+				this.active = this.active ? false : true; 
+			},
         }
     }
 
